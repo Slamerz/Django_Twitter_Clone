@@ -1,0 +1,14 @@
+
+venv/
+
+.idea/
+
+Twitter_Clone/__pycache__/
+
+Twitter_Clone/authentication/__pycache__/
+
+Twitter_Clone/notifications/__pycache__/
+
+Twitter_Clone/tweets/__pycache__/
+
+Twitter_Clone/twitterusers/__pycache__/
