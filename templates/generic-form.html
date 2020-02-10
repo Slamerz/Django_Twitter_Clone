@@ -10,5 +10,8 @@
     {{ form.as_p }}
   <input type="submit" value="Submit" />
 </form>
+{% if allow_register %}
+    <a href={% url "newuser" %}><button>Register</button></a>
+{% endif %}
 </body>
 </html>
