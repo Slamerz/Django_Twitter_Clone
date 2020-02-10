@@ -56,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Twitter_Clone.urls'
+LOGIN_URL = 'login/'
 
 TEMPLATES = [
     {
