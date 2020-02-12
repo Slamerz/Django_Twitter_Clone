@@ -23,9 +23,15 @@ def login_view(request):
             )
         if user:
             login(request, user)
-            return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
+            return HttpResponseRedirect(
+                request.GET.get('next', reverse('homepage'))
+            )
     form = LoginForm()
-    return render(request, 'generic-form.html', {'form': form, 'allow_register': True})
+    return render(
+        request,
+        'generic-form.html',
+        {'form': form, 'allow_register': True}
+    )
 
 
 @login_required
@@ -35,6 +41,9 @@ def logout_view(request):
 
 
 def create_user_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('homepage'))
+
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
@@ -44,7 +53,6 @@ def create_user_view(request):
                 email=data['email'],
                 password=data['password']
             )
-
             twitter_user = TwitterUser.objects.create(
                 user=user
             )

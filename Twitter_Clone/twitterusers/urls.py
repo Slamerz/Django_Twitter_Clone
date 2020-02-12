@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
 from django.urls import path
+from Twitter_Clone.twitterusers import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('user/<int:id>', views.twitter_user_view, name='userprofile')
 ]

@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Twitter_Clone.authentication.urls import urlpatterns as auth_urlpatterns
-from Twitter_Clone.authentication.views import login_view, index_view
+from Twitter_Clone.tweets.urls import urlpatterns as tweets_urlpatterns
+from Twitter_Clone.twitterusers.urls import urlpatterns as user_urlpatterns
+from Twitter_Clone.authentication.views import index_view
 
 
 urlpatterns = [
@@ -26,3 +28,5 @@ urlpatterns = [
 
 
 urlpatterns += auth_urlpatterns
+urlpatterns += tweets_urlpatterns
+urlpatterns += user_urlpatterns
