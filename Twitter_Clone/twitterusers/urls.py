@@ -18,5 +18,7 @@ from django.urls import path
 from Twitter_Clone.twitterusers import views
 
 urlpatterns = [
-    path('user/<int:id>', views.twitter_user_view, name='userprofile')
+    path('user/<int:id>', views.twitter_user_view, name='userprofile'),
+    path('follow/<int:id>', views.follow_view, name='follow'),
+    path('unfollow/<int:id>', views.unfollow_view, name='unfollow')
 ]

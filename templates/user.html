@@ -6,7 +6,10 @@
     <br>
     Following: {{ twitter_user.following.count}}
 </div>
-
+<div>
+    <a href="{% url 'follow' id=twitter_user.id %}"><button>Follow</button></a>
+    <a href="{% url 'unfollow' id=twitter_user.id %}"><button>Unfollow</button></a>
+</div>
 
 <ul>
     {% for tweet in tweets %}
