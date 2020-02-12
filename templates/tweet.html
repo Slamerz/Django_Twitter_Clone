@@ -1,1 +1,14 @@
-{{ tweet }}
+<a href="{% url 'homepage' %}"><button>homepage</button></a>
+<div>
+    Posted by:
+    <a href="{% url 'userprofile' id=tweet.user.id %}">
+        {{ tweet.user.user.username }}
+    </a>
+    <br>
+    Posted on: {{ tweet.date_published }}
+    <p>{{ tweet }}</p>
+    <a href="{% url 'follow' id=tweet.user.id %}"><button>Follow</button></a>
+    <a href="{% url 'unfollow' id=tweet.user.id %}">
+        <button>Unfollow</button>
+    </a>
+</div>
