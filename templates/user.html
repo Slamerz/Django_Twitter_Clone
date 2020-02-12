@@ -1,0 +1,22 @@
+<a href="{% url 'homepage' %}"><button>homepage</button></a>
+<div>
+    {{ twitter_user }}
+    <br>
+    total tweets: {{ tweets.count }}
+    <br>
+    Following: {{ twitter_user.following.count}}
+</div>
+
+
+<ul>
+    {% for tweet in tweets %}
+        <a href="{% url 'tweet' id=tweet.id %}">
+            <li>
+                <h4>{{ twitter_user.user.username }}</h4>
+                {{ tweet.date_published }}:
+                <p>{{tweet}}</p>
+            </li>
+        </a>
+    {% endfor %}
+</ul>
+
