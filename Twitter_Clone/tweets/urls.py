@@ -18,4 +18,5 @@ from django.urls import path
 
 urlpatterns = [
     path('tweet/<int:id>/', views.tweet_view, name='tweet'),
+    path('newtweet/', views.create_tweet_view, name='createtweet')
 ]
