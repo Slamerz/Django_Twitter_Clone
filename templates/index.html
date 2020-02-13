@@ -5,9 +5,29 @@
     <title>Homepage</title>
 </head>
 <body>
-<a href={% url 'logout' %}><button>logout</button></a>
-<a href={% url 'tweets' %}><button>All Tweets</button></a>
-<a href={% url 'createtweet' %}><button>Create Tweet</button></a>
-<br>
+    <header>
+        <a href={% url 'logout' %}><button>logout</button></a>
+        <a href={% url 'tweets' %}><button>All Tweets</button></a>
+        <a href={% url 'createtweet' %}><button>Create Tweet</button></a>
+    </header>
+    <br>
+    <div><ul>
+        {% for tweet in tweets %}
+            <li>
+             Posted by:
+            <a href="{% url 'userprofile' id=tweet.user.id %}">
+                {{ tweet.user.user.username }}
+            </a>
+            <br>
+            Posted on: {{ tweet.date_published }}
+            <p>{{ tweet }}</p>
+            <a href="{% url 'unfollow' id=tweet.user.id %}">
+                <button>Unfollow</button>
+            </a>
+        </li>
+        {% endfor %}
+        </ul>
+    </div>
+
 </body>
 </html>

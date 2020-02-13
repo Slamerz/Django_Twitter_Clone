@@ -4,12 +4,18 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, HttpResponseRedirect, reverse
 
 from Twitter_Clone.authentication.forms import LoginForm, CreateUserForm
+from Twitter_Clone.tweets.models import Tweet
 from Twitter_Clone.twitterusers.models import TwitterUser
 
 
 @login_required
 def index_view(request):
-    return render(request, 'index.html', {})
+    following = list(request.user.twitteruser.following.all())
+    tweets = []
+    for user in following:
+        tweets += Tweet.objects.filter(user=user)
+    tweets = sorted(tweets, key=lambda tweet: tweet.date_published, reverse=True)
+    return render(request, 'index.html', {'tweets': tweets})
 
 
 def login_view(request):
