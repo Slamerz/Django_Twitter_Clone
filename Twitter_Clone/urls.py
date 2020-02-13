@@ -19,7 +19,7 @@ from Twitter_Clone.authentication.urls import urlpatterns as auth_urlpatterns
 from Twitter_Clone.tweets.urls import urlpatterns as tweets_urlpatterns
 from Twitter_Clone.twitterusers.urls import urlpatterns as user_urlpatterns
 from Twitter_Clone.authentication.views import index_view
-
+from Twitter_Clone.notifications.urls import urlpatterns as notification_urlpatterns
 
 urlpatterns = [
     path('', index_view, name='homepage'),
@@ -30,3 +30,4 @@ urlpatterns = [
 urlpatterns += auth_urlpatterns
 urlpatterns += tweets_urlpatterns
 urlpatterns += user_urlpatterns
+urlpatterns += notification_urlpatterns

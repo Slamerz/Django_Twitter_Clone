@@ -1,0 +1,8 @@
+<a href={% url 'homepage' %}><button>homepage</button></a>
+
+<div><ul>
+    {% for notification in notifications %}
+       <li>{{ notification }}</li>
+    {% endfor %}
+    </ul>
+</div>
