@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, HttpResponseRedirect, reverse
 
 from Twitter_Clone.authentication.forms import LoginForm, CreateUserForm
+from Twitter_Clone.notifications.models import Notification
 from Twitter_Clone.tweets.models import Tweet
 from Twitter_Clone.twitterusers.models import TwitterUser
 
@@ -15,7 +16,8 @@ def index_view(request):
     for user in following:
         tweets += Tweet.objects.filter(user=user)
     tweets = sorted(tweets, key=lambda tweet: tweet.date_published, reverse=True)
-    return render(request, 'index.html', {'tweets': tweets})
+    notifications = Notification.objects.filter(user=TwitterUser.objects.get(user=request.user), viewed=False)
+    return render(request, 'index.html', {'tweets': tweets, 'notifications': notifications})
 
 
 def login_view(request):

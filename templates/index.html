@@ -9,6 +9,9 @@
         <a href={% url 'logout' %}><button>logout</button></a>
         <a href={% url 'tweets' %}><button>All Tweets</button></a>
         <a href={% url 'createtweet' %}><button>Create Tweet</button></a>
+        {% if notifications %}
+            <a href={% url 'notifications' %}><button>{{ notifications.count }} new notifications</button></a>
+        {% endif %}
     </header>
     <br>
     <div><ul>
