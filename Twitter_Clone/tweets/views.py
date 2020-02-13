@@ -30,4 +30,9 @@ def create_tweet_view(request):
     return render(request, 'generic-form.html', {'form': form})
 
 
+def tweets_view(request):
+    tweets = Tweet.objects.all()
+    return render(request, 'tweets.html', {'tweets': tweets})
+
+
 
