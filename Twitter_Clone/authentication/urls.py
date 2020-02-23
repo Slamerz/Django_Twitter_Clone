@@ -18,7 +18,7 @@ from django.urls import path
 from Twitter_Clone.authentication import views
 
 urlpatterns = [
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('newuser/', views.create_user_view, name='newuser')
+    path('login/', views.LoginUserView.as_view(), name='login'),
+    path('logout/', views.LogoutUserView.as_view(), name='logout'),
+    path('newuser/', views.CreateUserView.as_view(), name='newuser')
 ]

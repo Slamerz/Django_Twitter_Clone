@@ -18,11 +18,11 @@ from django.urls import path
 from Twitter_Clone.authentication.urls import urlpatterns as auth_urlpatterns
 from Twitter_Clone.tweets.urls import urlpatterns as tweets_urlpatterns
 from Twitter_Clone.twitterusers.urls import urlpatterns as user_urlpatterns
-from Twitter_Clone.authentication.views import index_view
+from Twitter_Clone.authentication.views import IndexView
 from Twitter_Clone.notifications.urls import urlpatterns as notification_urlpatterns
 
 urlpatterns = [
-    path('', index_view, name='homepage'),
+    path('', IndexView.as_view(), name='homepage'),
     path('admin/', admin.site.urls),
 ]
 
